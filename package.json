@@ -1,0 +1,27 @@
+{
+  "name": "mun-lokaatio-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afmmrahman/Mun-lokaatio-api.git"
+  },
+  "author": "A F M Muzahidur Rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afmmrahman/Mun-lokaatio-api/issues"
+  },
+  "homepage": "https://github.com/afmmrahman/Mun-lokaatio-api#readme"
+}
