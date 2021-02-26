@@ -1,17 +1,28 @@
 const express = require("express");
-const location = express.Router();
+const locationrouter = express.Router();
 
-let database = [
-  { id: 1, latitude: 60, longitude: 70 },
-  { id: 2, latitude: 40, longitude: 80 }
-];
+const database = require("../database/data.js");
 
-location.get("/locations", (req, res) => {
-  res.json(database);
+locationrouter.get("/", function (req, res) {
+  res.json(database.findAll());
 });
 
-location.get("/locations/1", (req, res) => {
-  res.json(database[0]);
+locationrouter.get("/:id([0-9]+)", function (req, res) {
+  let location = database.findById(Number(req.params.id));
+  if (location) {
+    res.json(location);
+  } else {
+    res.status(404).send();
+  }
 });
 
-module.exports = location;
+locationrouter.delete("/:id([0-9]+)", function (req, res) {
+  let result = database.deleteById(req.params.id);
+  if (result) {
+    res.status(204).end();
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = locationrouter;
